@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/css/chat_box.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+   
+    <div id="chat-box">
+      <ul id="messages-list">
+        <li class="other-message">
+          <span id="other-message-receive"></span>
+        </li>
+        <li class="self-message">
+          <span id="my-message-receive"> </span>
+        </li>
+      </ul>
+      <div id="chat-message-input-container">
+        <input id="chat-message-input" placeholder="Type message here" />
+        <button onclick="sendMessage()" id="send-message">Send</button>
+      </div>
+    </div>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script>
+      const socket = io("http://localhost:8000");
+      socket.on("connection");
+      socket.on("message", (data) => {
+        document.getElementById("other-message-receive").innerHTML = data;
+      });
+
+      const sendMessage = () => {
+        var send_message = document.getElementById("chat-message-input");
+        document.getElementById("my-message-receive").innerHTML =
+          send_message.value;
+        console.log(send_message.value);
+        socket.emit("message", send_message.value);
+      };
+    </script>
+  </body>
+</html>
