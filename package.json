@@ -17,6 +17,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "himanshu mahajan",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1196-himanshu/chat-app.git"
+  },
+  "author": "HIMANSHU MAHAJAN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1196-himanshu/chat-app/issues"
+  },
+  "homepage": "https://github.com/1196-himanshu/chat-app#readme"
 }
